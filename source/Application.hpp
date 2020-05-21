@@ -40,6 +40,7 @@ private:
     double              _lastMouseY;
     
     Camera              _camera;
+    bool                _firstMouse;
 };
 
 

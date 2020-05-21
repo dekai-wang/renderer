@@ -32,7 +32,7 @@ public:
 private:
     Mesh            _mesh;
     GLuint          _vao;
-    int             _vboCount;
+    GLuint          _vboCount;
     vector<GLuint>  _vecVbo;
 };
 

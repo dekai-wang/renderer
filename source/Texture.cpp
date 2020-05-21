@@ -25,7 +25,6 @@ Texture::~Texture()
 void Texture::loadTexture(const char *filename)
 {
     glGenTextures(1, &_texture);
-    glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, _texture);
     
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
@@ -38,8 +37,8 @@ void Texture::loadTexture(const char *filename)
     unsigned char* data = stbi_load(filename, &width, &height, &comp, 0);
     if (data)
     {
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0,
-                     GL_RGBA, GL_UNSIGNED_BYTE, data);
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0,
+                     GL_RGB, GL_UNSIGNED_BYTE, data);
         glGenerateMipmap(GL_TEXTURE_2D);
     }
     else
@@ -51,6 +50,7 @@ void Texture::loadTexture(const char *filename)
 
 void Texture::bindTexture()
 {
+    glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, _texture);
 }
 

@@ -10,7 +10,7 @@ Application* AppCallback::app = nullptr;
 
 Application::Application()
 {
-    
+    _firstMouse = false;
 }
 
 Application::~Application()
@@ -27,12 +27,13 @@ void Application::init(unsigned int width, unsigned int height)
     
     initViewport();
     
-    glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+//    glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 }
 
 void Application::loop()
 {
-    CubeRender cube(glm::vec3(0.0f, 0.0f, -2.0f));
+    CubeRender cube(glm::vec3(2.0f, 0.0f, -2.0f));
+    CubeRender cube2(glm::vec3(-2.0f, 0.0f, -2.0f));
     while (!glfwWindowShouldClose(_window))
     {
         float currentTime = glfwGetTime();
@@ -46,6 +47,7 @@ void Application::loop()
         
         //TODO
         cube.render(_camera, this);
+        cube2.render(_camera, this);
         
         glfwSwapBuffers(_window);
         
@@ -120,12 +122,17 @@ void Application::handlerKeybord(GLFWwindow *window)
 
 void Application::handlerMouse(GLFWwindow *window, double xpos, double ypos)
 {
-    
+//    if (_firstMouse)
+//    {
+//        _lastMouseX = xpos;
+//        _lastMouseY = ypos;
+//    }
 //    double xoffset = xpos - _lastMouseX;
 //    double yoffset = _lastMouseY = ypos;
 //
 //    _lastMouseX = xpos;
 //    _lastMouseY = ypos;
+//
 //    _camera.ProcessMouseMovement(xoffset, yoffset);
 }
 
