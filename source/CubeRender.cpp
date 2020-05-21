@@ -11,7 +11,7 @@
 CubeRender::CubeRender(glm::vec3 pos)
 {
     _pos = pos;
-    _shader.init("resource/basic.vert", "resource/basic.frag");
+    _shader.init("resource/camera.vert", "resource/camera.frag");
     
     GLfloat vertices[] = {
        -0.5f, -0.5f, -0.5f,
@@ -56,44 +56,6 @@ CubeRender::CubeRender(glm::vec3 pos)
        -0.5f,  0.5f,  0.5f,
        -0.5f,  0.5f, -0.5f
     };
-    GLfloat texture[] = {
-        0.0f, 0.0f,
-        1.0f, 0.0f,
-        1.0f, 1.0f,
-        1.0f, 1.0f,
-        0.0f, 1.0f,
-        0.0f, 0.0f,
-        0.0f, 0.0f,
-        1.0f, 0.0f,
-        1.0f, 1.0f,
-        1.0f, 1.0f,
-        0.0f, 1.0f,
-        0.0f, 0.0f,
-        1.0f, 0.0f,
-        1.0f, 1.0f,
-        0.0f, 1.0f,
-        0.0f, 1.0f,
-        0.0f, 0.0f,
-        1.0f, 0.0f,
-        1.0f, 0.0f,
-        1.0f, 1.0f,
-        0.0f, 1.0f,
-        0.0f, 1.0f,
-        0.0f, 0.0f,
-        1.0f, 0.0f,
-        0.0f, 1.0f,
-        1.0f, 1.0f,
-        1.0f, 0.0f,
-        1.0f, 0.0f,
-        0.0f, 0.0f,
-        0.0f, 1.0f,
-        0.0f, 1.0f,
-        1.0f, 1.0f,
-        1.0f, 0.0f,
-        1.0f, 0.0f,
-        0.0f, 0.0f,
-        0.0f, 1.0f
-    };
     GLuint indices[] = {
         0, 1, 3,
         1, 2, 3
@@ -132,7 +94,6 @@ void CubeRender::render(Camera& camera, Application* app)
     
     _model.bindVAO();
     
-//    glDrawElements(GL_TRIANGLES, _model.getIndicesCount(), GL_UNSIGNED_INT, 0);
     glDrawArrays(GL_TRIANGLES, 0, 36);
     
 }

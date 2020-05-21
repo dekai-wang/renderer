@@ -286,5 +286,4 @@ dependencies: /Users/mrmac/dekaistudio/renderer/source/Application.cpp \
   /Users/mrmac/dekaistudio/renderer/source/CubeRender.hpp \
   /Users/mrmac/dekaistudio/renderer/source/Model.hpp \
   /Users/mrmac/dekaistudio/renderer/source/Mesh.h \
-  /Users/mrmac/dekaistudio/renderer/source/Shader.hpp \
-  /Users/mrmac/dekaistudio/renderer/source/Texture.hpp
+  /Users/mrmac/dekaistudio/renderer/source/Shader.hpp

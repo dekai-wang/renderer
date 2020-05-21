@@ -32,8 +32,7 @@ void Application::init(unsigned int width, unsigned int height)
 
 void Application::loop()
 {
-    CubeRender cube(glm::vec3(2.0f, 0.0f, -2.0f));
-    CubeRender cube2(glm::vec3(-2.0f, 0.0f, -2.0f));
+    CubeRender cube(glm::vec3(0.0f, 0.0f, -2.0f));
     while (!glfwWindowShouldClose(_window))
     {
         float currentTime = glfwGetTime();
@@ -47,7 +46,6 @@ void Application::loop()
         
         //TODO
         cube.render(_camera, this);
-        cube2.render(_camera, this);
         
         glfwSwapBuffers(_window);
         

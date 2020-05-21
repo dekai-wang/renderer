@@ -65,8 +65,8 @@ void Model::genVBO(int dimensions, const vector<GLfloat> &data)
     glGenBuffers(1, &vbo);
     glBindBuffer(GL_ARRAY_BUFFER, vbo);
         glBufferData(GL_ARRAY_BUFFER, data.size() * sizeof(GLfloat), data.data(), GL_STATIC_DRAW);
-    glVertexAttribPointer(_vboCount, dimensions, GL_FLOAT, GL_FALSE, dimensions * sizeof(float), (void*)0);
-    glEnableVertexAttribArray(_vboCount);
+    glVertexAttribPointer(0, dimensions, GL_FLOAT, GL_FALSE, dimensions * sizeof(float), (void*)0);
+    glEnableVertexAttribArray(0);
 
     _vboCount++;
     _vecVbo.push_back(vbo);

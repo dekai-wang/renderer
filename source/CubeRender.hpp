@@ -12,7 +12,6 @@
 #include "camera.h"
 #include "Model.hpp"
 #include "Shader.hpp"
-#include "Texture.hpp"
 #include "Application.hpp"
 
 class CubeRender {
@@ -25,7 +24,6 @@ public:
 private:
     Model       _model;
     Shader      _shader;
-    Texture     _texture;
     glm::vec3   _pos;
 };
 
