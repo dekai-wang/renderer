@@ -18,22 +18,19 @@ public:
     
     ~Model();
     
-    void init(Mesh mesh);
+    void init();
     
     void clean();
     
     void bindVAO();
 
-    void genVBO(int dimensions, const vector<GLfloat> &data);
+    void genVBO(GLuint index, GLint size, const std::vector<GLfloat> &data);
     
-    void genEBO(const vector<unsigned int> &data);
-    
-    unsigned int getIndicesCount();
+    void genEBO(const std::vector<GLuint> &data);
+
 private:
-    Mesh            _mesh;
-    GLuint          _vao;
-    GLuint          _vboCount;
-    vector<GLuint>  _vecVbo;
+    GLuint                  _vao;
+    std::vector<GLuint>     _vecVbo;
 };
 
 #endif /* Model_hpp */

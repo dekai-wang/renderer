@@ -32,8 +32,15 @@ void Application::init(unsigned int width, unsigned int height)
 
 void Application::loop()
 {
-    CubeRender cube(glm::vec3(2.0f, 0.0f, -2.0f));
-    CubeRender cube2(glm::vec3(-2.0f, 0.0f, -2.0f));
+    
+    CubeRender cube(glm::vec3(2.0f, 0.0f, -2.0f), "resource/textures/bricks2.jpg");
+    CubeRender cube2(glm::vec3(-2.0f, 0.0f, -2.0f), "resource/textures/container.jpg");
+    CubeRender cube3(glm::vec3(-2.0f, 1.0f, -2.0f), "resource/textures/container.jpg");
+    CubeRender cube4(glm::vec3(-2.0f, 2.0f, -2.0f), "resource/textures/container.jpg");
+    CubeRender cube5(glm::vec3(-2.0f, 3.0f, -2.0f), "resource/textures/container.jpg");
+    CubeRender cube6(glm::vec3(-2.0f, 4.0f, -2.0f), "resource/textures/container.jpg");
+    CubeRender cube7(glm::vec3(-2.0f, 5.0f, -2.0f), "resource/textures/container.jpg");
+    CubeRender cube8(glm::vec3(-2.0f, 6.0f, -2.0f), "resource/textures/container.jpg");
     while (!glfwWindowShouldClose(_window))
     {
         float currentTime = glfwGetTime();
@@ -48,6 +55,12 @@ void Application::loop()
         //TODO
         cube.render(_camera, this);
         cube2.render(_camera, this);
+        cube3.render(_camera, this);
+        cube4.render(_camera, this);
+        cube5.render(_camera, this);
+        cube6.render(_camera, this);
+        cube7.render(_camera, this);
+        cube8.render(_camera, this);
         
         glfwSwapBuffers(_window);
         

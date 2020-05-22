@@ -24,6 +24,4 @@
 #include <iostream>
 #include <string>
 
-using namespace std;
-
 #endif /* common_h */

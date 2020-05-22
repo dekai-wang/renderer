@@ -52,12 +52,22 @@ void Shader::useProgram()
     glUseProgram(_program);
 }
 
-unsigned int Shader::getProgram()
+GLuint Shader::getProgram()
 {
     return _program;
 }
 
-void Shader::checkCompileError(unsigned int shader, string type)
+GLint Shader::getAttrib(const char* attrib)
+{
+    return glGetAttribLocation(_program, attrib);
+}
+
+GLint Shader::getUnifrom(const char* attrib)
+{
+    return glGetUniformLocation(_program, attrib);
+}
+
+void Shader::checkCompileError(unsigned int shader, std::string type)
 {
     GLint success;
     GLchar infoLog[1024];

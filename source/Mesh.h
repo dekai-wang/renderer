@@ -12,9 +12,9 @@
 #include "common.h"
 
 struct Mesh {
-    vector<GLfloat>         verticesPosition;
-    vector<GLfloat>         verticesTexture;
-    vector<GLuint>          indices;
+    std::vector<GLfloat>         verticesPosition;
+    std::vector<GLfloat>         verticesTexCoord;
+    std::vector<GLuint>          indices;
 };
 
 #endif /* Mesh_h */

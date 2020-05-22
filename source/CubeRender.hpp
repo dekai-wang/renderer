@@ -17,16 +17,16 @@
 
 class CubeRender {
 public:
-    CubeRender(glm::vec3 pos);
+    CubeRender(glm::vec3 pos, std::string filename);
     ~CubeRender();
     
     void render(Camera& camera, Application* app);
     
 private:
+    glm::vec3   _pos;
     Model       _model;
     Shader      _shader;
     Texture     _texture;
-    glm::vec3   _pos;
 };
 
 #endif /* CubeRender_hpp */
