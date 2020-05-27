@@ -25,7 +25,7 @@ void Model3D::loadModel(std::string path) {
     const aiScene* scene = importer.ReadFile(path, aiProcess_Triangulate | aiProcess_FlipUVs | aiProcess_CalcTangentSpace);
 
     if (!scene || scene->mFlags & AI_SCENE_FLAGS_INCOMPLETE || !scene->mRootNode) {
-        std::cout << "Assimp����ģ��ʧ�ܣ�������Ϣ: " << importer.GetErrorString() << std::endl;
+        std::cout << "Assimp load error : " << importer.GetErrorString() << std::endl;
         return;
     }
 
@@ -161,7 +161,7 @@ unsigned int TextureFromFile(const char *path, const std::string &directory, boo
         stbi_image_free(data);
     }
     else {
-        std::cout << "��������ʧ�ܣ�·����" << filename << std::endl;
+        std::cout << "std_image load error : " << filename << std::endl;
         stbi_image_free(data);
     }
 
