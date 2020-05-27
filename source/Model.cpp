@@ -30,9 +30,8 @@ void Model::clean()
     glDeleteVertexArrays(1, &_vao);
     
     if (_vecVbo.size())
-    {
        glDeleteBuffers(static_cast<GLsizei>(_vecVbo.size()), _vecVbo.data());
-    }
+    
 }
 
 void Model::bindVAO()

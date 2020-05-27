@@ -12,7 +12,7 @@
 #include "camera.h"
 #include "Model.hpp"
 #include "Shader.hpp"
-#include "Texture.hpp"
+#include "Texture2D.hpp"
 #include "Application.hpp"
 
 class CubeRender {
@@ -26,7 +26,8 @@ private:
     glm::vec3   _pos;
     Model       _model;
     Shader      _shader;
-    Texture     _texture;
+    Texture2D     _texture1;
+    Texture2D     _texture2;
 };
 
 #endif /* CubeRender_hpp */

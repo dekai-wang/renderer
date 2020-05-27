@@ -282,5 +282,4 @@ dependencies: /Users/mrmac/dekaistudio/renderer/source/Texture.cpp \
   /usr/local/Cellar/glm/0.9.9.8/include/glm/gtc/../mat4x2.hpp \
   /usr/local/Cellar/glm/0.9.9.8/include/glm/gtc/../mat4x3.hpp \
   /usr/local/Cellar/glm/0.9.9.8/include/glm/gtc/type_ptr.inl \
-  /Users/mrmac/dekaistudio/renderer/source/Utils.hpp \
-  /Users/mrmac/dekaistudio/renderer/source/include/stb_image.h
+  /Users/mrmac/dekaistudio/renderer/source/Utils.hpp

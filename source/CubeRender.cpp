@@ -107,7 +107,11 @@ CubeRender::CubeRender(glm::vec3 pos, std::string filename)
     
     _shader.init("resource/texture.vert", "resource/texture.frag");
     
-    _texture.loadTexture(filename.data());
+    _texture1.textureUnit = 0;
+    _texture1.loadTexture(filename.data());
+    
+    _texture2.textureUnit = 1;
+    _texture2.loadTexture("resource/textures/awesomeface.png");
     
     Mesh mesh;
     for (size_t i = 0; i < sizeof(vertices) / sizeof(GLfloat); i++) {
@@ -130,7 +134,8 @@ CubeRender::CubeRender(glm::vec3 pos, std::string filename)
     
     _shader.useProgram();
     
-    _shader.setInt("uTexture", 0);
+    _shader.setInt("uTexture0", _texture1.textureUnit);
+    _shader.setInt("uTexture1", _texture2.textureUnit);
 }
 
 CubeRender::~CubeRender()
@@ -140,9 +145,8 @@ CubeRender::~CubeRender()
 
 void CubeRender::render(Camera& camera, Application* app)
 {
-    _texture.bindTexture();
-    
-    
+    _texture1.bindTexture();
+    _texture2.bindTexture();
     
     glm::mat4 model         = glm::mat4(1.0f);
     glm::mat4 view          = glm::mat4(1.0f);

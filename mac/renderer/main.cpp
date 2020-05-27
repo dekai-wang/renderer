@@ -14,7 +14,7 @@ int main(int argc, char** argv)
 {
     Application app;
     
-    app.init(480, 320);
+    app.init(1280, 720);
     
     app.loop();
 
