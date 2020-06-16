@@ -26,70 +26,6 @@ void Application::init(unsigned int width, unsigned int height)
     initWindow();
     
     initViewport();
-    
-//    glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-}
-
-void Application::loop()
-{
-    
-//    CubeRender cube(glm::vec3(2.0f, 0.0f, -2.0f), "resource/textures/bricks2.jpg");
-//    CubeRender cube2(glm::vec3(-2.0f, 0.0f, -2.0f), "resource/textures/container.jpg");
-//    CubeRender cube3(glm::vec3(-2.0f, 1.0f, -2.0f), "resource/textures/container.jpg");
-//    CubeRender cube4(glm::vec3(-2.0f, 2.0f, -2.0f), "resource/textures/container.jpg");
-//    CubeRender cube5(glm::vec3(-2.0f, 3.0f, -2.0f), "resource/textures/container.jpg");
-//    CubeRender cube6(glm::vec3(-2.0f, 4.0f, -2.0f), "resource/textures/container.jpg");
-//    CubeRender cube7(glm::vec3(-2.0f, 5.0f, -2.0f), "resource/textures/container.jpg");
-//    CubeRender cube8(glm::vec3(-2.0f, 6.0f, -2.0f), "resource/textures/container.jpg");
-    
-    Shader shader;
-    shader.init("resource/shader.vs", "resource/shader.fs");
-
-    Model3D model3d("resource/objects/nanosuit/nanosuit.obj");
-    while (!glfwWindowShouldClose(_window))
-    {
-        float currentTime = glfwGetTime();
-        _deltaTime = currentTime - _lastTime;
-        _lastTime = currentTime;
-        
-        handlerKeybord(_window);
-        
-        glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-        
-        //TODO
-//        cube.render(_camera, this);
-//        cube2.render(_camera, this);
-//        cube3.render(_camera, this);
-//        cube4.render(_camera, this);
-//        cube5.render(_camera, this);
-//        cube6.render(_camera, this);
-//        cube7.render(_camera, this);
-//        cube8.render(_camera, this);
-        
-        shader.useProgram();
-
-        glm::vec3 pos = glm::vec3(0.0f, -8.0f, -22.0f);
-        glm::mat4 model         = glm::mat4(1.0f);
-        glm::mat4 view          = glm::mat4(1.0f);
-        glm::mat4 projection    = glm::mat4(1.0f);
-        
-        projection = glm::perspective(glm::radians(_camera.Zoom), (float)width / (float)heigth, 0.1f, 100.0f);
-        view = _camera.GetViewMatrix();
-        model = glm::translate(model, glm::vec3(pos));
-        
-        shader.setMat4("model", model);
-        shader.setMat4("view", view);
-        shader.setMat4("projection", projection);
-        
-        model3d.Draw(shader);
-        
-        glfwSwapBuffers(_window);
-        
-        glfwPollEvents();
-    }
-    
-    glfwTerminate();
 }
 
 bool Application::initWindow()
@@ -132,7 +68,34 @@ bool Application::initViewport()
     
     glEnable(GL_DEPTH_TEST);
     
+    //    glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+    
     return true;
+}
+
+
+void Application::run()
+{
+    Model3D model3d("resource/objects/nanosuit/nanosuit.obj");
+    while (!glfwWindowShouldClose(_window))
+    {
+        float currentTime = glfwGetTime();
+        _deltaTime = currentTime - _lastTime;
+        _lastTime = currentTime;
+        
+        handlerKeybord(_window);
+        
+        glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        
+        model3d.Draw(_camera, this);
+        
+        glfwSwapBuffers(_window);
+        
+        glfwPollEvents();
+    }
+    
+    glfwTerminate();
 }
 
 void Application::handlerKeybord(GLFWwindow *window)

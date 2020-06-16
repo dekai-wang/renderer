@@ -40,11 +40,11 @@ void Texture2D::loadTexture(const char *filename)
 //    if (data)
 //    {
 //        GLenum format;
-//        if (comp == 1)
+//        if (nrComponents == 1)
 //            format = GL_RED;
-//        else if (comp == 3)
+//        else if (nrComponents == 3)
 //            format = GL_RGB;
-//        else
+//        else if (nrComponents == 4)
 //            format = GL_RGBA;
 //        glTexImage2D(GL_TEXTURE_2D, 0, format, width, height, 0,
 //                     format, GL_UNSIGNED_BYTE, data);

@@ -284,4 +284,6 @@ dependencies: /Users/mrmac/dekaistudio/renderer/source/Model3D.cpp \
   /usr/local/Cellar/glm/0.9.9.8/include/glm/gtc/type_ptr.inl \
   /Users/mrmac/dekaistudio/renderer/source/Shader.hpp \
   /Users/mrmac/dekaistudio/renderer/source/Mesh3D.hpp \
+  /Users/mrmac/dekaistudio/renderer/source/include/camera.h \
+  /Users/mrmac/dekaistudio/renderer/source/Application.hpp \
   /Users/mrmac/dekaistudio/renderer/source/include/stb_image.h

@@ -14,7 +14,7 @@ public:
     
     void init(unsigned int width, unsigned int height);
     
-    void loop();
+    void run();
     
     void handlerMouse(GLFWwindow* window, double xpos, double ypos);
     

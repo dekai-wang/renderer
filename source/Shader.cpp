@@ -47,26 +47,6 @@ void Shader::init(const char *vertPath, const char *fragPath)
     glDeleteShader(frag);
 }
 
-void Shader::useProgram()
-{
-    glUseProgram(_program);
-}
-
-GLuint Shader::getProgram()
-{
-    return _program;
-}
-
-GLint Shader::getAttrib(const char* attrib)
-{
-    return glGetAttribLocation(_program, attrib);
-}
-
-GLint Shader::getUnifrom(const char* attrib)
-{
-    return glGetUniformLocation(_program, attrib);
-}
-
 void Shader::checkCompileError(unsigned int shader, std::string type)
 {
     GLint success;

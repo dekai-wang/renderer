@@ -19,13 +19,25 @@ public:
     
     void init(const char* vertPath, const char* fragPath);
     
-    void useProgram();
-    
-    GLuint getProgram();
-    
-    GLint getAttrib(const char* attrib);
-    
-    GLint getUnifrom(const char* unifrom);
+    void useProgram()
+    {
+        glUseProgram(_program);
+    }
+
+    GLuint getProgram()
+    {
+        return _program;
+    }
+
+    GLint getAttrib(const char* attrib)
+    {
+        return glGetAttribLocation(_program, attrib);
+    }
+
+    GLint getUnifrom(const char* attrib)
+    {
+        return glGetUniformLocation(_program, attrib);
+    }
     
     void setBool(const std::string &name, bool value) const
     {

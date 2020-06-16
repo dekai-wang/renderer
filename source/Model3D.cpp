@@ -15,7 +15,23 @@
 unsigned int TextureFromFile(const char *path, const std::string &directory, bool gamma = false);
 
 
-void Model3D::Draw(Shader shader) {
+void Model3D::Draw(Camera& camera, Application* app) {
+    
+    shader.useProgram();
+
+    glm::vec3 pos = glm::vec3(0.0f, -8.0f, -22.0f);
+    glm::mat4 model         = glm::mat4(1.0f);
+    glm::mat4 view          = glm::mat4(1.0f);
+    glm::mat4 projection    = glm::mat4(1.0f);
+    
+    projection = glm::perspective(glm::radians(camera.Zoom), (float)app->width / (float)app->heigth, 0.1f, 100.0f);
+    view = camera.GetViewMatrix();
+    model = glm::translate(model, glm::vec3(pos));
+    
+    shader.setMat4("model", model);
+    shader.setMat4("view", view);
+    shader.setMat4("projection", projection);
+    
     for (int i = 0; i < meshes.size(); ++i)
         meshes[i].Draw(shader);
 }

@@ -16,7 +16,7 @@ int main(int argc, char** argv)
     
     app.init(1280, 720);
     
-    app.loop();
+    app.run();
 
     return 0;
 }
