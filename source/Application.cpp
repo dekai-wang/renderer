@@ -5,10 +5,12 @@
 #include "Application.hpp"
 #include "CubeRender.hpp"
 #include "Model3D.hpp"
+#include "Skybox.hpp"
 
 Application* AppCallback::app = nullptr;
 
 Application::Application()
+: _camera(glm::vec3(0.0f, 0.0f, 3.0f))
 {
     _firstMouse = true;
 }
@@ -22,6 +24,9 @@ void Application::init(unsigned int width, unsigned int height)
 {
     this->width = width;
     this->heigth = height;
+    
+    this->_lastMouseX = width / 2;
+    this->_lastMouseY = height / 2;
     
     initWindow();
     
@@ -54,6 +59,8 @@ bool Application::initWindow()
     glfwSetCursorPosCallback(_window, &AppCallback::mouseCallback);
     glfwSetScrollCallback(_window, &AppCallback::scrollCallback);
     
+    glfwSetInputMode(_window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+    
     return true;
 }
 
@@ -76,7 +83,13 @@ bool Application::initViewport()
 
 void Application::run()
 {
-    Model3D model3d("resource/objects/nanosuit/nanosuit.obj");
+    Model3D model3d("resource/objects/planet/planet.obj");
+    
+    CubeRender cube(glm::vec3(0.0f, 0.0f, 0.0f), "resource/textures/bricks2.jpg");
+    
+    Skybox skybox;
+    skybox.init();
+
     while (!glfwWindowShouldClose(_window))
     {
         float currentTime = glfwGetTime();
@@ -85,10 +98,14 @@ void Application::run()
         
         handlerKeybord(_window);
         
-        glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+        glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         
-        model3d.Draw(_camera, this);
+//        model3d.Draw(_camera, this);
+        
+        cube.draw(_camera, this);
+
+        skybox.draw(_camera, this);
         
         glfwSwapBuffers(_window);
         

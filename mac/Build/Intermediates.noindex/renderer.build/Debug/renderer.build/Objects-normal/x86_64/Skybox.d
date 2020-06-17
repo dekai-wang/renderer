@@ -1,5 +1,5 @@
-dependencies: /Users/mrmac/dekaistudio/renderer/source/Texture2D.cpp \
-  /Users/mrmac/dekaistudio/renderer/source/Texture2D.hpp \
+dependencies: /Users/mrmac/dekaistudio/renderer/source/Skybox.cpp \
+  /Users/mrmac/dekaistudio/renderer/source/Skybox.hpp \
   /Users/mrmac/dekaistudio/renderer/source/include/common.h \
   /usr/local/Cellar/assimp/5.0.1/include/assimp/Importer.hpp \
   /usr/local/Cellar/assimp/5.0.1/include/assimp/types.h \
@@ -282,5 +282,7 @@ dependencies: /Users/mrmac/dekaistudio/renderer/source/Texture2D.cpp \
   /usr/local/Cellar/glm/0.9.9.8/include/glm/gtc/../mat4x2.hpp \
   /usr/local/Cellar/glm/0.9.9.8/include/glm/gtc/../mat4x3.hpp \
   /usr/local/Cellar/glm/0.9.9.8/include/glm/gtc/type_ptr.inl \
-  /Users/mrmac/dekaistudio/renderer/source/Utils.hpp \
+  /Users/mrmac/dekaistudio/renderer/source/include/camera.h \
+  /Users/mrmac/dekaistudio/renderer/source/Application.hpp \
+  /Users/mrmac/dekaistudio/renderer/source/Shader.hpp \
   /Users/mrmac/dekaistudio/renderer/source/include/stb_image.h

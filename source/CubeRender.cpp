@@ -143,17 +143,12 @@ CubeRender::~CubeRender()
     
 }
 
-void CubeRender::render(Camera& camera, Application* app)
+void CubeRender::draw(Camera& camera, Application* app)
 {
-    _texture1.bindTexture();
-    _texture2.bindTexture();
+    glm::mat4 model = glm::mat4(1.0f);
+    glm::mat4 view = camera.GetViewMatrix();
+    glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)app->width / (float)app->heigth, 0.1f, 100.0f);
     
-    glm::mat4 model         = glm::mat4(1.0f);
-    glm::mat4 view          = glm::mat4(1.0f);
-    glm::mat4 projection    = glm::mat4(1.0f);
-    
-    projection = glm::perspective(glm::radians(camera.Zoom), (float)app->width / (float)app->heigth, 0.1f, 100.0f);
-    view = camera.GetViewMatrix();
     model = glm::translate(model, glm::vec3(_pos));
     
     _shader.setMat4("model", model);
@@ -162,6 +157,10 @@ void CubeRender::render(Camera& camera, Application* app)
     
     _model.bindVAO();
     
+    _texture1.bindTexture();
+    _texture2.bindTexture();
+    
     glDrawArrays(GL_TRIANGLES, 0, 36);
+    glBindVertexArray(0);
     
 }

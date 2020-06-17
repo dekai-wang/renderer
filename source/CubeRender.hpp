@@ -20,7 +20,7 @@ public:
     CubeRender(glm::vec3 pos, std::string filename);
     ~CubeRender();
     
-    void render(Camera& camera, Application* app);
+    void draw(Camera& camera, Application* app);
     
 private:
     glm::vec3   _pos;

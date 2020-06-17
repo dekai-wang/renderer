@@ -19,14 +19,14 @@ void Model3D::Draw(Camera& camera, Application* app) {
     
     shader.useProgram();
 
-    glm::vec3 pos = glm::vec3(0.0f, -8.0f, -22.0f);
+//    glm::vec3 pos = glm::vec3(0.0f, -8.0f, -22.0f);
     glm::mat4 model         = glm::mat4(1.0f);
     glm::mat4 view          = glm::mat4(1.0f);
     glm::mat4 projection    = glm::mat4(1.0f);
     
-    projection = glm::perspective(glm::radians(camera.Zoom), (float)app->width / (float)app->heigth, 0.1f, 100.0f);
+//    model = glm::translate(model, glm::vec3(pos));
     view = camera.GetViewMatrix();
-    model = glm::translate(model, glm::vec3(pos));
+    projection = glm::perspective(glm::radians(camera.Zoom), (float)app->width / (float)app->heigth, 0.1f, 100.0f);
     
     shader.setMat4("model", model);
     shader.setMat4("view", view);
@@ -163,6 +163,8 @@ unsigned int TextureFromFile(const char *path, const std::string &directory, boo
         else if (nrComponents == 3)
             format = GL_RGB;
         else if (nrComponents == 4)
+            format = GL_RGBA;
+        else
             format = GL_RGBA;
 
         glBindTexture(GL_TEXTURE_2D, textureID);

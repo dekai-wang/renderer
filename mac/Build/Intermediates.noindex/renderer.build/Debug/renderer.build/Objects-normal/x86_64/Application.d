@@ -289,4 +289,5 @@ dependencies: /Users/mrmac/dekaistudio/renderer/source/Application.cpp \
   /Users/mrmac/dekaistudio/renderer/source/Shader.hpp \
   /Users/mrmac/dekaistudio/renderer/source/Texture2D.hpp \
   /Users/mrmac/dekaistudio/renderer/source/Model3D.hpp \
-  /Users/mrmac/dekaistudio/renderer/source/Mesh3D.hpp
+  /Users/mrmac/dekaistudio/renderer/source/Mesh3D.hpp \
+  /Users/mrmac/dekaistudio/renderer/source/Skybox.hpp
